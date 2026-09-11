@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Del héroe al individuo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600&family=Inter:wght@400;500&display=swap');
+:root{--paper:#eee9df;--paper2:#e4dbce;--ink:#302b27;--muted:#746b63;--line:#c9bfb2;--red:#8b463a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"Noto Serif SC",sans-serif}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.13;background-image:radial-gradient(#302b27 .55px,transparent .65px);background-size:8px 8px}
+h1,h2,h3,.serif{font-family:"Cormorant Garamond","Noto Serif SC",serif;font-weight:500}
+.nav{position:fixed;z-index:40;top:0;left:0;right:0;height:68px;padding:0 6vw;display:flex;justify-content:space-between;align-items:center;background:#eee9dfdd;backdrop-filter:blur(12px);border-bottom:1px solid #746b6328}
+.brand{font:500 22px "Cormorant Garamond";letter-spacing:.1em}.nav a{margin-left:25px;color:var(--muted);text-decoration:none;font-size:10px;letter-spacing:.16em;text-transform:uppercase}
+section{min-height:100vh;padding:125px 7vw 90px}.hero{display:grid;place-items:center;text-align:center;position:relative;background:linear-gradient(#eee9df,#e8dfd2)}
+.eyebrow,.kicker{color:var(--red);font-size:10px;letter-spacing:.24em;text-transform:uppercase}.hero h1{font-size:clamp(68px,10vw,145px);line-height:.77;margin:28px 0}.hero h1 span{display:block}.sub{font-family:"Noto Serif SC";color:var(--muted);letter-spacing:.13em}.desc{max-width:620px;margin:30px auto;color:var(--muted);font-size:14px;line-height:1.9}
+.btn{padding:13px 22px;border:1px solid var(--ink);background:transparent;cursor:pointer;transition:.2s}.btn:hover{background:var(--ink);color:var(--paper)}
+.hero-line{position:absolute;left:10%;right:10%;bottom:68px;border-top:1px solid var(--line)}
+.head{max-width:1050px;margin:0 auto 50px}.head h2{font-size:clamp(48px,6vw,80px);line-height:.85;margin:14px 0}.head p{max-width:680px;color:var(--muted);line-height:1.9;font-size:14px}
+.grid{max-width:1050px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:55px}.box{border-top:1px solid var(--line);padding-top:22px}.box h3{font-size:34px;margin:8px 0}.box p{color:var(--muted);line-height:1.9;font-size:14px}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:25px}.three div{padding:20px 8px;border:1px solid var(--line);text-align:center}.three strong{display:block;font:500 23px "Cormorant Garamond"}.three small{color:var(--muted)}
+.dark{background:var(--ink);color:var(--paper)}.dark .head p{color:#b9afa5}.dark .eyebrow{color:#b47a6e}
+.stages{max-width:1050px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:38px;position:relative}.stages:before{content:"";position:absolute;top:42px;left:7%;right:7%;border-top:1px solid #756d65}
+.stage{text-align:center;position:relative}.dot{width:15px;height:15px;border:1px solid var(--paper);border-radius:50%;background:var(--ink);margin:35px auto 27px;position:relative;z-index:2}.stage h3{font-size:36px;margin:0}.stage .cn{font-family:"Noto Serif SC";color:#c7bdb3}.stage p{max-width:260px;margin:15px auto;color:#aaa198;line-height:1.8;font-size:13px}.flow{font-size:10px;letter-spacing:.13em;color:#aaa198;line-height:2}
+.camino-final{text-align:center;margin-top:70px;font:500 28px "Cormorant Garamond";letter-spacing:.1em}
+.timeline-wrap{max-width:1100px;margin:auto;overflow-x:auto}.timeline{min-width:1000px;display:grid;grid-template-columns:repeat(6,1fr);position:relative}.timeline:before{content:"";position:absolute;top:58px;left:0;right:0;border-top:1px solid var(--line)}.titem{text-align:center;cursor:pointer}.tdot{width:12px;height:12px;border:1px solid var(--red);border-radius:50%;background:var(--paper);margin:52px auto 18px;transition:.2s}.titem.active .tdot,.titem:hover .tdot{background:var(--red);transform:scale(1.25)}.year{font-size:9px;color:var(--red);letter-spacing:.13em}.tname{font:500 24px "Cormorant Garamond"}
+.detail-card{max-width:850px;margin:35px auto 0;padding:32px;border:1px solid var(--line);background:#ffffff12;min-height:185px}.detail-card h3{font-size:42px;margin:3px 0}.detail-card p{color:var(--muted);line-height:1.8;font-size:14px}.tags{display:flex;flex-wrap:wrap;gap:7px}.tags span{padding:6px 9px;border:1px solid var(--line);font-size:10px;letter-spacing:.08em}
+.quiz{background:var(--paper2)}.quizbox,.result,.character{max-width:900px;margin:auto}.progress{height:2px;background:var(--line);margin-bottom:40px}.progress i{display:block;height:100%;width:20%;background:var(--red);transition:.3s}.qnum{font-size:10px;color:var(--red);letter-spacing:.2em}.question{font:500 48px/1 "Cormorant Garamond";margin:12px 0}.qcn{font-family:"Noto Serif SC";color:var(--muted);margin-bottom:32px}.opts{display:grid;grid-template-columns:1fr 1fr;gap:12px}.opt{text-align:left;padding:22px;border:1px solid var(--line);background:transparent;cursor:pointer;min-height:90px}.opt:hover{border-color:var(--red);background:#8b463a08}.opt b{font:500 22px "Cormorant Garamond";color:var(--red);margin-right:12px}.opt span{font-size:13px;line-height:1.6}.result{display:none;text-align:center}.result.show{display:block}.result h2{font-size:78px;line-height:.75;margin:18px 0}.result .cn{font-family:"Noto Serif SC";color:var(--muted)}.resultcard{text-align:left;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:25px;margin:30px 0}.resultcard p{color:var(--muted);line-height:1.9;font-size:14px}
+.character{display:none}.chargrid{display:grid;grid-template-columns:.8fr 1.2fr;gap:55px}.portrait{min-height:410px;border:1px solid var(--line);display:grid;place-items:center;text-align:center;background:linear-gradient(145deg,#ded4c6,#eee9df)}.portrait .big{font:500 100px/1 "Cormorant Garamond"}.portrait small{color:var(--red);letter-spacing:.18em}.chargrid h2{font-size:70px;line-height:.75;margin:10px 0}.chargrid p{color:var(--muted);line-height:1.9;font-size:14px}.analysis{border-top:1px solid var(--line);margin-top:25px;padding-top:20px}.compare{margin-top:25px;padding:20px;background:#8b463a0b;border-left:2px solid var(--red)}.compare strong{font:500 23px "Cormorant Garamond"}.back{border:0;background:none;color:var(--red);cursor:pointer;font-size:10px;letter-spacing:.16em}
+footer{text-align:center;padding:80px 7vw;border-top:1px solid var(--line)}footer h2{font-size:65px;margin:15px 0}footer p{max-width:650px;margin:auto;color:var(--muted);line-height:1.9}
+@media(max-width:760px){.navlinks{display:none}.grid,.chargrid,.opts,.stages{grid-template-columns:1fr}.question{font-size:39px}.result h2{font-size:55px}.three{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="brand">DEL HÉROE AL INDIVIDUO</div><div class="navlinks"><a href="#world">World</a><a href="#camino">Camino</a><a href="#works">Works</a><a href="#quiz">Quiz</a></div></nav>
+
+<section class="hero" id="top">
+<div><div class="eyebrow">Literatura medieval española · Exploración interactiva</div>
+<h1><span>Del héroe</span><span>al individuo</span></h1><div class="sub">从英雄到个体</div>
+<p class="desc">如果把西班牙中世纪文学看成一条不断展开的文学史，我们会发现一个问题：文学中的“人”，究竟发生了什么变化？</p>
+<button class="btn" onclick="go('world')">COMENZAR / 开始探索 →</button></div><div class="hero-line"></div>
+</section>
+
+<section id="world"><div class="head"><div class="eyebrow">01 · EL MUNDO</div><h2>一个正在流动的世界</h2><p>中世纪伊比利亚半岛并不是一个单一、静止的文化空间。基督教、伊斯兰与犹太文化传统长期接触，在冲突与共存中形成复杂的语言与文化环境。</p></div>
+<div class="grid"><div class="box"><div class="kicker">IBERIA</div><h3>多种文化长期共存</h3><div class="three"><div><strong>CRISTIANISMO</strong><small>基督教</small></div><div><strong>ISLAM</strong><small>伊斯兰</small></div><div><strong>JUDAÍSMO</strong><small>犹太传统</small></div></div></div>
+<div class="box"><div class="kicker">LITERATURA</div><h3>文学也开始流动</h3><p>语言接触、宗教接触、文化交流与冲突，共同进入文学。Jarcha、Cid、Granada 与 La Celestina 所呈现的世界，都可以追溯到这种复杂背景。</p></div></div></section>
+
+<section class="dark" id="camino"><div class="head"><div class="eyebrow">02 · EL CAMINO DE SANTIAGO</div><h2>一条路，三次改变</h2><p>Camino 不只是通往圣地亚哥的朝圣路线。随着人不断移动，它也成为思想、艺术、故事与经济活动流动的通道。</p></div>
+<div class="stages">
+<div class="stage"><div class="dot"></div><div class="flow">01</div><h3>Peregrinación</h3><div class="cn">朝圣</div><p>人开始移动。信仰把不同地区的人带到同一条道路上。</p><div class="flow">FE → PERSONAS → SANTIAGO</div></div>
+<div class="stage"><div class="dot"></div><div class="flow">02</div><h3>Intercambio</h3><div class="cn">交流</div><p>人带来语言、知识、艺术形式与故事，文化沿着道路传播。</p><div class="flow">PERSONAS → IDEAS → ARTE → HISTORIAS</div></div>
+<div class="stage"><div class="dot"></div><div class="flow">03</div><h3>Transformación</h3><div class="cn">社会改变</div><p>道路带来市场、城镇与城市，也改变社会生活。</p><div class="flow">CAMINO → MERCADO → CIUDAD → SOCIEDAD</div></div></div>
+<div class="camino-final">UN CAMINO → UNA CULTURA → UNA SOCIEDAD</div></section>
+
+<section id="works"><div class="head"><div class="eyebrow">03 · SEIS VOCES</div><h2>文学中的“人”</h2><p>点击时间轴，看看不同作品如何表现“人”。文学不是从宗教突然走向世俗，而是不同传统不断叠加、重组。</p></div>
+<div class="timeline-wrap"><div class="timeline" id="timeline"></div></div><div class="detail-card" id="workdetail"></div></section>
+
+<section id="quiz" class="quiz"><div class="head"><div class="eyebrow">04 · TU VIAJE</div><h2>你会成为谁？</h2><p>不要回答“你是什么性格”。试着回答：如果你生活在中世纪文学的世界里，你会如何面对荣誉、爱情、选择、边疆与欲望？</p></div>
+<div class="quizbox" id="quizbox"><div class="progress"><i id="prog"></i></div><div class="qnum" id="qnum"></div><div class="question" id="q"></div><div class="qcn" id="qcn"></div><div class="opts" id="opts"></div></div>
+<div class="result" id="result"><div class="eyebrow">TU PERSONA</div><h2 id="rt"></h2><div class="cn" id="rcn"></div><div class="resultcard"><div class="kicker" id="rlead"></div><p id="rtext"></p><div class="tags" id="rtags"></div></div><button class="btn" onclick="showCharacter(resultName)">DESCUBRE EL PERSONAJE →</button> <button class="btn" onclick="restart()">REPETIR</button></div>
+</section>
+
+<section id="character"><div class="character" id="char"></div></section>
+
+<footer><div class="eyebrow">05 · UNA ÚLTIMA PREGUNTA</div><h2>¿Qué ha cambiado?</h2><p>英雄 · 爱情 · 智慧 · 边疆 · 欲望 · 个体<br><br>文学史真正改变的，也许不是“人”本身，而是文学开始允许我们看到越来越多种不同的人。</p></footer>
+
+<script>
+const works=[
+{name:"Jarcha",year:"XI–XII",tag:"LA VOZ ÍNTIMA",cn:"私密的声音",desc:"个人抒情声音出现于阿拉伯—罗曼语文化环境中，让我们听见爱情、思念与等待中的“我”。",tags:["VOZ","AMOR","AUSENCIA"]},
+{name:"Cantar de mio Cid",year:"XII",tag:"EL HÉROE",cn:"英雄",desc:"战争、封建关系、骑士身份与荣誉构成英雄史诗的社会背景。Cid 的英雄身份在行动、忠诚、责任与社会认可中建立。",tags:["ACCIÓN","LEALTAD","HONOR","FAMILIA"]},
+{name:"Libro de buen amor",year:"XIV",tag:"EL SER DESEO",cn:"欲望与爱情主体",desc:"爱情、欲望、教诲、幽默与讽刺同时存在。“buen amor”本身具有多义性，私人情感与道德教诲彼此交织。",tags:["AMOR","DESEO","CUERPO","AMBIGÜEDAD"]},
+{name:"El Conde Lucanor",year:"XIV",tag:"EL QUE DECIDE",cn:"现实中的选择者",desc:"一个现实问题 → 一个故事 → 一个教训。故事让读者通过人物经历理解经验与智慧。",tags:["PROBLEMA","HISTORIA","ERROR","LECCIÓN"]},
+{name:"Romancero · Abenámar",year:"XV",tag:"LA MEMORIA",cn:"历史记忆中的人",desc:"Granada 成为战争、接触与历史记忆的空间。重复、对话与景物描写体现民间口头传播传统。",tags:["GRANADA","FRONTERA","HISTORIA","MEMORIA"]},
+{name:"La Celestina",year:"XV fin",tag:"EL INDIVIDUO COMPLEJO",cn:"复杂的个体",desc:"城市生活、商业、金钱关系与个人欲望更加突出。人物通过语言建立关系、制造欲望、说服、操控并谋取利益。",tags:["DESEO","LENGUA","RELACIÓN","INTERÉS"]}
+];
+const profiles={
+Jarcha:["JARCHA","私密的声音","LA VOZ ÍNTIMA","你最接近文学中的私人声音：爱情、思念、等待与缺席。你关心一个人心里正在发生什么。",["VOZ","AMOR","AUSENCIA"],"《诗经·静女》——私人爱情与抒情声音。相似的是对个人情感的关注，表达方式却不同。"],
+Cid:["EL CID","荣誉中的英雄","EL HÉROE DEL HONOR","你相信人的价值需要通过行动建立。责任、忠诚、家庭与公共荣誉共同构成一个人的身份。",["ACCIÓN","LEALTAD","RESPONSABILIDAD","HONOR"],"《木兰诗》——英雄、战争与家庭责任。共同关注英雄身份，但价值重点不同。"],
+"Buen Amor":["BUEN AMOR","欲望与爱情中的人","EL SER DESEO","你无法把爱情简单归类为“正确”或“错误”。你更敏感于身体、欲望、幽默和道德之间的矛盾。",["AMOR","DESEO","CUERPO","AMBIGÜEDAD"],"《诗经·静女》——同样写爱情，但《真爱之书》更加复杂、幽默，并带有教诲与讽刺。"],
+Lucanor:["LUCANOR","现实中的选择者","EL QUE DECIDE","你面对世界时更愿意观察、判断和选择。你相信故事与经验可以帮助一个人理解现实。",["PROBLEMA","EXPERIENCIA","DECISIÓN","SABIDURÍA"],"中国古代寓言与《战国策》——通过故事传递经验与劝诫。"],
+Abenamar:["ABENÁMAR","历史记忆中的人","LA MEMORIA","你对空间背后的历史特别敏感。边疆不是简单的分界线，而是战争、文化接触、城市与记忆重叠的地方。",["GRANADA","FRONTERA","HISTORIA","MEMORIA"],"王昌龄《出塞》——边疆、战争与历史记忆。"],
+Celestina:["CELESTINA","复杂的个体","EL INDIVIDUO COMPLEJO","你最接近一个被关系、欲望、语言与利益共同塑造的复杂个体。对你而言，说话也可以改变世界。",["DESEO","LENGUA","RELACIÓN","INTERÉS"],"《西厢记》——爱情中的中介者。相似的功能背后，道德形象与利益关系并不相同。"]
+};
+const qs=[
+["Tu honor ha sido cuestionado. ¿Qué haces?","你的荣誉受到质疑，你会？",[["A","拿起行动证明自己。","Cid",2],["B","回到所爱的人身边，承担责任。","Cid",1],["C","先观察局势，寻找解决办法。","Lucanor",2],["D","不在乎别人怎么看，追求自己的欲望。","Celestina",2]]],
+["¿Qué significa amar?","你认为爱情是什么？",[["A","忠诚与责任。","Cid",2],["B","一种无法隐藏的私人情感。","Jarcha",3],["C","欲望、身体与道德之间的矛盾。","Buen Amor",3],["D","一种需要人与人之间不断介入的关系。","Celestina",3]]],
+["Tienes una pequeña oportunidad de cambiar tu vida. ¿Qué haces?","你得到一个改变生活的小机会，你会？",[["A","先想象成功后的未来。","Buen Amor",2],["B","先确认眼前的现实。","Lucanor",3],["C","相信自己的判断并行动。","Cid",1],["D","寻找能帮助我实现它的人。","Celestina",2]]],
+["¿Qué ves en la frontera?","如果你站在边疆，你首先看到什么？",[["A","敌人。","Cid",2],["B","家园与离别。","Jarcha",1],["C","历史与记忆。","Abenamar",3],["D","一个复杂而美丽的城市。","Abenamar",3]]],
+["Alguien quiere cambiar tu decisión. ¿Cómo reaccionas?","有人试图改变你的决定，你会？",[["A","坚持自己的决定。","Cid",2],["B","听听故事，也许能学到什么。","Lucanor",3],["C","怀疑他的动机。","Celestina",3],["D","反过来利用语言影响他。","Celestina",4]]]
+];
+let scores={},qi=0,resultName="Cid";
+function resetScores(){scores={Jarcha:0,Cid:0,"Buen Amor":0,Lucanor:0,Abenamar:0,Celestina:0}}
+function go(id){document.getElementById(id).scrollIntoView({behavior:"smooth"})}
+function renderTimeline(){let t=document.getElementById("timeline");works.forEach((w,i)=>{let d=document.createElement("div");d.className="titem"+(i==0?" active":"");d.innerHTML=`<div class="year">${w.year} · SIGLO</div><div class="tdot"></div><div class="tname">${w.name.split(" · ")[0]}</div>`;d.onclick=()=>selectWork(i);t.appendChild(d)});selectWork(0)}
+function selectWork(i){document.querySelectorAll(".titem").forEach(x=>x.classList.remove("active"));document.querySelectorAll(".titem")[i].classList.add("active");let w=works[i];document.getElementById("workdetail").innerHTML=`<div class="kicker">${w.year} · ${w.tag}</div><h3>${w.name}</h3><p>${w.cn}<br>${w.desc}</p><div class="tags">${w.tags.map(x=>`<span>${x}</span>`).join("")}</div>`}
+function renderQ(){let x=qs[qi];document.getElementById("prog").style.width=((qi+1)/qs.length*100)+"%";document.getElementById("qnum").textContent=`QUESTION ${String(qi+1).padStart(2,"0")} / ${qs.length}`;document.getElementById("q").textContent=x[0];document.getElementById("qcn").textContent=x[1];document.getElementById("opts").innerHTML=x[2].map(o=>`<button class="opt" onclick="answer('${o[2]}',${o[3]})"><b>${o[0]}</b><span>${o[1]}</span></button>`).join("")}
+function answer(name,n){scores[name]+=n;qi++;if(qi<qs.length)renderQ();else finish()}
+function finish(){resultName=Object.keys(scores).sort((a,b)=>scores[b]-scores[a])[0];let p=profiles[resultName];document.getElementById("quizbox").style.display="none";document.getElementById("result").classList.add("show");document.getElementById("rt").textContent=p[0];document.getElementById("rcn").textContent=p[1];document.getElementById("rlead").textContent=p[2];document.getElementById("rtext").textContent=p[3];document.getElementById("rtags").innerHTML=p[4].map(x=>`<span>${x}</span>`).join("")}
+function restart(){resetScores();qi=0;document.getElementById("quizbox").style.display="block";document.getElementById("result").classList.remove("show");renderQ()}
+function showCharacter(name){let p=profiles[name],w=works.find(x=>x.name.includes(name));document.getElementById("char").innerHTML=`<button class="back" onclick="document.getElementById('character').style.display='none'">← BACK</button><div class="chargrid" style="margin-top:28px"><div class="portrait"><div><div class="big">${p[0].split(" ")[0]}</div><small>${p[2]}</small></div></div><div><div class="eyebrow">${w?w.year:""}</div><h2>${p[0]}</h2><div class="sub">${p[1]}</div><p>${w?w.desc:p[3]}</p><div class="analysis"><div class="kicker">PERSONAJE → TEMA</div><div class="tags" style="margin-top:15px">${p[4].map(x=>`<span>${x}</span>`).join("")}</div><p>${p[3]}</p></div><div class="compare"><strong>EN CHINA / 在中国文学中</strong><p>${p[5]}</p></div></div></div>`;document.getElementById("char").style.display="block";document.getElementById("character").style.display="block";go("character")}
+resetScores();renderTimeline();renderQ();
+</script>
+</body>
+</html>
